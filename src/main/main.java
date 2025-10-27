@@ -99,9 +99,10 @@ public class main {
 
                     System.out.print("Enter Password: ");
                     String pass = scan.next();
+                    String Hashpassed = db.hashPassword(pass);
 
                     String sql = "INSERT INTO tbl_user (u_name, u_email, u_type, u_status, u_pass) VALUES (?, ?, ?, ?, ?)";
-                    db.addRecord(sql, name, email, type, status, pass);
+                    db.addRecord(sql, name, email, type, status, Hashpassed);
 
                     if (type.equals("Patient")) {
                         // Get last user id
