@@ -232,8 +232,6 @@ public class main {
             String generatedEmail = name.replaceAll("\\s+", "").toLowerCase() + "@patient.com";
             String defaultPassHash = db.hashPassword("123");
             db.addRecord(userSql, name, generatedEmail, "Patient", "Approved", defaultPassHash);
-
-            // Get the last inserted user ID
             String getLastUserId = "SELECT u_id FROM tbl_user WHERE u_email = ?";
             List<Map<String, Object>> lastUser = db.fetchRecords(getLastUserId, generatedEmail);
             
